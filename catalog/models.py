@@ -5,6 +5,8 @@ from django.db import models
 
 class Category(models.Model):
     name        = models.CharField(max_length=50)
+    slug = models.SlugField(max_length=50, unique=True,
+                            help_text='Unique value for product page URL, created from name.')
     description = models.TextField()
     is_active   = models.BooleanField(default=True)
     created_at  = models.DateTimeField(auto_now_add=True)
@@ -18,11 +20,17 @@ class Category(models.Model):
     def __unicode__(self):
         return self.name
 
+    @models.permalink
+    def get_absolute_url(self):
+        return ('catalog_category', (), {'category_slug': self.slug})
+
 
 class Product(models.Model):
     name          = models.CharField(max_length=50, unique=True)
     price         = models.DecimalField(max_digits=9, decimal_places=2)
     old_price     = models.DecimalField(max_digits=9, decimal_places=2, blank=True, default=0.00)
+    slug = models.SlugField(max_length=255, unique=True,
+                            help_text='Unique value for product page URL, created from name.')
     image         = models.ImageField(upload_to='photos/%Y/%m/%d')
     is_active     = models.BooleanField(default=True)
     is_featured   = models.BooleanField(default=True)
@@ -38,6 +46,10 @@ class Product(models.Model):
 
     def __unicode__(self):
         return self.name
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ('catalog_product', (), {'product_slug': self.slug})
 
     def sale_price(self):
         if self.old_price > self.price:

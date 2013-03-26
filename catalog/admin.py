@@ -12,7 +12,7 @@ class ProductAdmin(admin.ModelAdmin):
     ordering = ['-created_at']
     search_fields = ['name', 'description']
 
-
+    prepopulated_fields = {'slug': ('name',)}
 admin.site.register(Product, ProductAdmin)
 
 
@@ -23,5 +23,6 @@ class CategoryAdmin(admin.ModelAdmin):
     ordering = ['-created_at']
     search_fields = ['name', 'description']
 
+    prepopulated_fields = {'slug': ('name',)}
 
 admin.site.register(Category, CategoryAdmin)
