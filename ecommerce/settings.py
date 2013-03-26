@@ -20,7 +20,7 @@ DATABASES = {
         'NAME': 'ecommerce',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': 'postgres',
-        'PASSWORD': 'arveen11',
+        'PASSWORD': 'alive',
         'HOST': 'localhost',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
         'PORT': '5432',                      # Set to empty string for default.
     }
@@ -130,10 +130,6 @@ INSTALLED_APPS = (
     'catalog',
     'accounts',
     # Uncomment the next line to enable the admin:
-<<<<<<< HEAD
-=======
-    'grappelli.dashboard',
->>>>>>> 9f490b5fb99685e9434304ca29d1db08ac73691b
     'grappelli',
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:

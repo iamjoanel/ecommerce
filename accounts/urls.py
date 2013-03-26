@@ -15,7 +15,7 @@ from ecommerce import settings
         (r'^order_info//$', 'order_info',
         {'template_name': 'registration/order_info.html'}, 'order_info'),
     )
-    
+
     urlpatterns += patterns('django.contrib.auth.views',
         (r'^login/$', 'login',
         {'template_name': 'registration/login.html', 'SSL':
