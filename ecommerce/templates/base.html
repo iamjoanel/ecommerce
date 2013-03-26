@@ -1,14 +1,104 @@
 <html>
     <head>
-        <title>JMD Seafoods | {{ title }}</title>
-        {% block header %}
-        {% endblock %}
-    </head>
-    <body>
-        {% block content %}
+        {% load staticfiles %}
+         <link rel="shortcut icon" href="static/img/jmd-logo.png">
+         <link rel="stylesheet" href="{% static "css/normalize.css" %}" /> 
+         <link rel="stylesheet" href="{% static "css/foundation.css" %}" />
 
-        {% endblock %}
-        {% block footer %}
-        {% endblock %}
-    </body>
+         <script src="{%static "js/vendor/custom.modernizr.js" %}"></script>
+        
+
+        <title>JMD Seafoods Inc. - {{ title }}</title>
+        {% block scripts %}{% endblock %}
+    </head> 
+    <body>
+
+       <div class="row">
+    <div class="large-12 columns">
+
+    <!-- Navigation -->
+
+      <div class="row">
+        <div class="large-12 columns">
+
+          <nav class="top-bar">
+            <ul class="title-area">
+              <!-- Title Area -->
+              <li class="name">
+                <h1>
+                  <a href="/">
+                    JMD Seafoods Inc.
+                  </a>
+                </h1>
+              </li>
+              <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
+            </ul>
+         
+            <section class="top-bar-section">
+              <!-- Right Nav Section -->
+              <ul class="left">
+                <li class="divider"></li>
+                <li><a href="/">Home</a></li>
+                <li class="divider"></li>
+                <li><a href="#">About Us</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Contact Us</a></li>
+                <li class="divider"></li>
+          
+                
+              </ul>
+
+
+              <ul class="right">
+                {% if user.is_authenticated %}
+                <li><a href="/accounts/profile">Welcome {{ user.username }}</a></li>
+                <li><a href="/logout">Logout</a></li>                  
+                {% else %}
+                <li><a href="/login">Login</a></li>
+                <li class="divider"></li>
+                <li><a href="/register">Register</a></li>
+                {% endif %}
+                
+
+              </ul>
+            </section>
+          </nav>
+          <!-- End Top Bar -->
+        </div>
+      </div><br><br>
+
+        {% block content %}{% endblock %}
+     
+      <footer class="row">
+        <div class="large-12 columns"><hr />
+          <div class="row">
+
+            <div class="large-6 columns">
+              <p>&copy; JMD Seafoods Inc.</p>
+            </div>
+
+            <div class="large-6 columns">
+              <ul class="inline-list right">
+                <li><a href="/">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+                
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </footer>
+
+      
+</div>
+<script src="{%static "js/vendor/zepto.js" %}"></script>
+<script src="{%static "js/foundation/foundation.js" %}"></script>
+<script src="{%static "js/foundation/foundation.joyride.js" %}"></script>
+<script src="{%static "js/foundation/foundation.reveal.js" %}"></script>
+<script src="{%static "js/foundation/foundation.dropdown.js" %}"></script>
+<script src="{%static "js/foundation/foundation.alerts.js" %}"></script>
+<script src="{%static "js/foundation.min.js" %}"></script>
+
+</body>
 </html>

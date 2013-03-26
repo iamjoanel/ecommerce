@@ -25,6 +25,10 @@ urlpatterns = patterns('',
 
 urlpatterns += patterns('accounts.views',
         (r'^register/$', 'register'),
+        (r'^$', 'home'),
+        (r'^logout/$', 'logout'),
+        (r'^accounts/profile/$', 'my_account',
+        {'template_name': 'registration/my_account.html'}, 'my_account'),
 )
 
 
@@ -44,6 +48,12 @@ urlpatterns += patterns('accounts.views',
 )
     """
 urlpatterns += patterns('',
+
+
         (r'^login/$', 'django.contrib.auth.views.login',
         {'template_name': 'registration/login.html'}, 'login'),
+
+        (r'^password_change/$', 'django.contrib.auth.views.password_change',
+        {'template_name': 'registration/password_change.html'}, 'password_change'),
+        
 )
