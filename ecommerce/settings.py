@@ -10,6 +10,8 @@ ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
 
+GRAPPELLI_ADMIN_TITLE = "JMD Seafoods Inc."
+
 MANAGERS = ADMINS
 
 DATABASES = {
@@ -58,7 +60,7 @@ MEDIA_ROOT = os.path.join(PROJECT_DIR, 'assets')
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://example.com/media/", "http://media.example.com/"
-MEDIA_URL = ''
+MEDIA_URL = '/assets/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
@@ -127,6 +129,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'catalog',
     # Uncomment the next line to enable the admin:
+    'grappelli.dashboard',
+    'grappelli',
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
@@ -160,3 +164,12 @@ LOGGING = {
         },
     }
 }
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.request",
+    "django.core.context_processors.i18n",
+    'django.contrib.messages.context_processors.messages',
+)
+
+GRAPPELLI_INDEX_DASHBOARD = 'ecommerce.dashboard.CustomIndexDashboard'
