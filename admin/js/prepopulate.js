@@ -31,4 +31,8 @@
             $(dependencies.join(',')).keyup(populate).change(populate).focus(populate);
         });
     };
+<<<<<<< HEAD
 })(grp.jQuery);
+=======
+})(django.jQuery);
+>>>>>>> 9f490b5fb99685e9434304ca29d1db08ac73691b

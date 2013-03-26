@@ -36,8 +36,12 @@ function showRelatedObjectLookupPopup(triggeringLink) {
     } else {
         href = triggeringLink.href + '?pop=1';
     }
+<<<<<<< HEAD
     // GRAPPELLI CUSTOM: changed width
     var win = window.open(href, name, 'height=500,width=1000,resizable=yes,scrollbars=yes');
+=======
+    var win = window.open(href, name, 'height=500,width=800,resizable=yes,scrollbars=yes');
+>>>>>>> 9f490b5fb99685e9434304ca29d1db08ac73691b
     win.focus();
     return false;
 }
@@ -50,6 +54,7 @@ function dismissRelatedLookupPopup(win, chosenId) {
     } else {
         document.getElementById(name).value = chosenId;
     }
+<<<<<<< HEAD
     // GRAPPELLI CUSTOM: element focus
     elem.focus();
     win.close();
@@ -67,13 +72,26 @@ function showAddAnotherPopup(triggeringLink) {
     var name = triggeringLink.id.replace(/^add_/, '');
     name = id_to_windowname(name);
     href = triggeringLink.href;
+=======
+    win.close();
+}
+
+function showAddAnotherPopup(triggeringLink) {
+    var name = triggeringLink.id.replace(/^add_/, '');
+    name = id_to_windowname(name);
+    href = triggeringLink.href
+>>>>>>> 9f490b5fb99685e9434304ca29d1db08ac73691b
     if (href.indexOf('?') == -1) {
         href += '?_popup=1';
     } else {
         href  += '&_popup=1';
     }
+<<<<<<< HEAD
     // GRAPPELLI CUSTOM: changed width
     var win = window.open(href, name, 'height=500,width=1000,resizable=yes,scrollbars=yes');
+=======
+    var win = window.open(href, name, 'height=500,width=800,resizable=yes,scrollbars=yes');
+>>>>>>> 9f490b5fb99685e9434304ca29d1db08ac73691b
     win.focus();
     return false;
 }
@@ -86,6 +104,7 @@ function dismissAddAnotherPopup(win, newId, newRepr) {
     var name = windowname_to_id(win.name);
     var elem = document.getElementById(name);
     if (elem) {
+<<<<<<< HEAD
         if (elem.nodeName == 'SELECT') {
             var o = new Option(newRepr, newId);
             elem.options[elem.options.length] = o;
@@ -174,6 +193,26 @@ function dismissAddAnotherPopup(win, newId, newRepr) {
             // append the new list item to the list
             list.appendChild(newLi);
         }
+=======
+        var elemName = elem.nodeName.toUpperCase();
+        if (elemName == 'SELECT') {
+            var o = new Option(newRepr, newId);
+            elem.options[elem.options.length] = o;
+            o.selected = true;
+        } else if (elemName == 'INPUT') {
+            if (elem.className.indexOf('vManyToManyRawIdAdminField') != -1 && elem.value) {
+                elem.value += ',' + newId;
+            } else {
+                elem.value = newId;
+            }
+        }
+    } else {
+        var toId = name + "_to";
+        elem = document.getElementById(toId);
+        var o = new Option(newRepr, newId);
+        SelectBox.add_to_cache(toId, o);
+        SelectBox.redisplay(toId);
+>>>>>>> 9f490b5fb99685e9434304ca29d1db08ac73691b
     }
     win.close();
 }
