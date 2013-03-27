@@ -55,5 +55,9 @@ urlpatterns += patterns('',
 
         (r'^password_change/$', 'django.contrib.auth.views.password_change',
         {'template_name': 'registration/password_change.html'}, 'password_change'),
-        
+
+)
+
+urlpatterns += patterns('contact.views',
+                       url(r'^contact$', 'contact'),
 )

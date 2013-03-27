@@ -2,15 +2,15 @@
     <head>
         {% load staticfiles %}
          <link rel="shortcut icon" href="static/img/jmd-logo.png">
-         <link rel="stylesheet" href="{% static "css/normalize.css" %}" /> 
+         <link rel="stylesheet" href="{% static "css/normalize.css" %}" />
          <link rel="stylesheet" href="{% static "css/foundation.css" %}" />
 
          <script src="{%static "js/vendor/custom.modernizr.js" %}"></script>
-        
+
 
         <title>JMD Seafoods Inc. - {{ title }}</title>
         {% block scripts %}{% endblock %}
-    </head> 
+    </head>
     <body>
 
        <div class="row">
@@ -33,7 +33,7 @@
               </li>
               <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
             </ul>
-         
+
             <section class="top-bar-section">
               <!-- Right Nav Section -->
               <ul class="left">
@@ -42,23 +42,23 @@
                 <li class="divider"></li>
                 <li><a href="#">About Us</a></li>
                 <li class="divider"></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="/contact">Contact Us</a></li>
                 <li class="divider"></li>
-          
-                
+
+
               </ul>
 
 
               <ul class="right">
                 {% if user.is_authenticated %}
                 <li><a href="/accounts/profile">Welcome {{ user.username }}</a></li>
-                <li><a href="/logout">Logout</a></li>                  
+                <li><a href="/logout">Logout</a></li>
                 {% else %}
                 <li><a href="/login">Login</a></li>
                 <li class="divider"></li>
                 <li><a href="/register">Register</a></li>
                 {% endif %}
-                
+
 
               </ul>
             </section>
@@ -68,7 +68,7 @@
       </div><br><br>
 
         {% block content %}{% endblock %}
-     
+
       <footer class="row">
         <div class="large-12 columns"><hr />
           <div class="row">
@@ -82,7 +82,7 @@
                 <li><a href="/">Home</a></li>
                 <li><a href="#">About Us</a></li>
                 <li><a href="#">Contact Us</a></li>
-                
+
               </ul>
             </div>
 
@@ -90,7 +90,7 @@
         </div>
       </footer>
 
-      
+
 </div>
 <script src="{%static "js/vendor/zepto.js" %}"></script>
 <script src="{%static "js/foundation/foundation.js" %}"></script>
