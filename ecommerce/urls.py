@@ -11,7 +11,7 @@ urlpatterns = patterns('',
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^grappelli/', include('grappelli.urls')),
-    url(r'^$', include('catalog.urls')),
+    #url(r'^$', include('catalog.urls')),
     # Examples:
     # url(r'^$', 'ecommerce.views.home', name='home'),
     # url(r'^ecommerce/', include('ecommerce.foo.urls')),
@@ -48,9 +48,9 @@ urlpatterns += patterns('accounts.views',
         {'template_name': 'registration/order_info.html'}, 'order_info'),
 )
     """
+
+
 urlpatterns += patterns('',
-
-
         (r'^login/$', 'django.contrib.auth.views.login',
         {'template_name': 'registration/login.html'}, 'login'),
 
@@ -61,4 +61,10 @@ urlpatterns += patterns('',
 
 urlpatterns += patterns('contact.views',
                        url(r'^contact$', 'contact'),
+)
+
+urlpatterns += patterns('catalog.views',
+    #(r'^$', 'index', { 'template_name':'catalog/index.html'}, 'catalog_home'),
+    (r'^category/(?P<category_slug>[-\w]+)/$','show_category', {'template_name':'catalog/category.html'},'catalog_category'),
+    (r'^product/(?P<product_slug>[-\w]+)/$','show_product', {'template_name':'catalog/product.html'},'catalog_product'),
 )
