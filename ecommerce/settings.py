@@ -2,6 +2,7 @@ import os
 # Django settings for ecommerce project.
 
 PROJECT_DIR = os.path.dirname(__file__)
+SITE_NAME = "JMD Seafoods Inc."
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -20,7 +21,7 @@ DATABASES = {
         'NAME': 'ecommerce',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': 'postgres',
-        'PASSWORD': 'arveen11',
+        'PASSWORD': 'alive',
         'HOST': 'localhost',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
         'PORT': '5432',                      # Set to empty string for default.
     }
@@ -129,6 +130,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'catalog',
     'accounts',
+    'floppyforms',
+    'contact',
     # Uncomment the next line to enable the admin:
     'grappelli',
     'django.contrib.admin',

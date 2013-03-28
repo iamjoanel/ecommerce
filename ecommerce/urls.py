@@ -10,7 +10,8 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    (r'^grappelli/', include('grappelli.urls')),
+    url(r'^grappelli/', include('grappelli.urls')),
+    url(r'^$', include('catalog.urls')),
     # Examples:
     # url(r'^$', 'ecommerce.views.home', name='home'),
     # url(r'^ecommerce/', include('ecommerce.foo.urls')),
@@ -55,5 +56,9 @@ urlpatterns += patterns('',
 
         (r'^password_change/$', 'django.contrib.auth.views.password_change',
         {'template_name': 'registration/password_change.html'}, 'password_change'),
-        
+
+)
+
+urlpatterns += patterns('contact.views',
+                       url(r'^contact$', 'contact'),
 )
