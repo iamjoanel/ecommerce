@@ -2,6 +2,7 @@ import os
 # Django settings for ecommerce project.
 
 PROJECT_DIR = os.path.dirname(__file__)
+SITE_NAME = "JMD Seafoods Inc."
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG

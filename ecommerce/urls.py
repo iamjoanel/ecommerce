@@ -10,7 +10,8 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    (r'^grappelli/', include('grappelli.urls')),
+    url(r'^grappelli/', include('grappelli.urls')),
+    url(r'^$', include('catalog.urls')),
     # Examples:
     # url(r'^$', 'ecommerce.views.home', name='home'),
     # url(r'^ecommerce/', include('ecommerce.foo.urls')),
