@@ -132,6 +132,7 @@ INSTALLED_APPS = (
     'accounts',
     'floppyforms',
     'contact',
+    'cart',
     # Uncomment the next line to enable the admin:
     'grappelli',
     'django.contrib.admin',
