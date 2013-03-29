@@ -9,10 +9,18 @@ TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
+    ('Arveen Landa', 'apmlanda@gmail.com'),
 )
 
 GRAPPELLI_ADMIN_TITLE = "JMD Seafoods Inc."
 
+ACCOUNT_ACTIVATION_DAYS = 7
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
+EMAIL_HOST_USER = ""
+EMAIL_HOST_PASSWORD = ""
+EMAIL_USE_TLS = False
+DEFAULT_FROM_EMAIL = 'testing@example.com'
 MANAGERS = ADMINS
 
 DATABASES = {
@@ -21,7 +29,7 @@ DATABASES = {
         'NAME': 'ecommerce',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': 'postgres',
-        'PASSWORD': 'alive',
+        'PASSWORD': 'arveen11',
         'HOST': 'localhost',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
         'PORT': '5432',                      # Set to empty string for default.
     }
@@ -136,7 +144,7 @@ INSTALLED_APPS = (
     'grappelli',
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
+     'django.contrib.admindocs',
 )
 
 # A sample logging configuration. The only tangible logging

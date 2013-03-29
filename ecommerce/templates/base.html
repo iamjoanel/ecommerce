@@ -1,11 +1,12 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "XHTML1-s.dtd" ><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
     <head>
         {% load staticfiles %}
-         <link rel="shortcut icon" href="static/img/jmd-logo.png">
+         
          <link rel="stylesheet" href="{% static "css/normalize.css" %}" />
          <link rel="stylesheet" href="{% static "css/foundation.css" %}" />
-
+         <script src="{%static "js/foundation.min.js" %}"></script>
          <script src="{%static "js/vendor/custom.modernizr.js" %}"></script>
+         <link rel="shortcut icon" href="static/img/jmd-logo.png">
 
 
         <title>JMD Seafoods Inc. - {{ title }}</title>
@@ -56,7 +57,7 @@
                 {% else %}
                 <li><a href="/login">Login</a></li>
                 <li class="divider"></li>
-                <li><a href="/register">Register</a></li>
+                <li><a href="/accounts/register">Register</a></li>
                 {% endif %}
 
 
@@ -98,7 +99,7 @@
 <script src="{%static "js/foundation/foundation.reveal.js" %}"></script>
 <script src="{%static "js/foundation/foundation.dropdown.js" %}"></script>
 <script src="{%static "js/foundation/foundation.alerts.js" %}"></script>
-<script src="{%static "js/foundation.min.js" %}"></script>
+
 
 </body>
 </html>

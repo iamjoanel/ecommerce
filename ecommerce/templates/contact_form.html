@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
+      <div class="row">
+
+  <!-- Side Bar -->
+
+        <div class="large-7 small-12 columns">
     <h1>Contact us</h1>
 
     {% if form.errors %}
@@ -25,7 +30,9 @@
             <label for="id_message">Message:</label>
             {{ form.message }}
         </div>
-        <input type="submit" value="Submit">
+        <button class="button">Submit</button>
     </form>
+  </div>
+  </div>  
 
 {% endblock %}

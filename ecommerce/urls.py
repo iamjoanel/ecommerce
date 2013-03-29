@@ -11,6 +11,8 @@ urlpatterns = patterns('',
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^grappelli/', include('grappelli.urls')),
+    (r'^accounts/', include('registration.backends.default.urls')),
+
     #url(r'^$', include('catalog.urls')),
     # Examples:
     # url(r'^$', 'ecommerce.views.home', name='home'),
@@ -30,9 +32,9 @@ urlpatterns += patterns('accounts.views',
         (r'^logout/$', 'logout'),
         (r'^accounts/profile/$', 'my_account',
         {'template_name': 'registration/my_account.html'}, 'my_account'),
+
+
 )
-
-
 """urlpatterns += patterns('accounts.views',
         (r'^register/$', 'register',
         {'template_name': 'registration/registration.html'},

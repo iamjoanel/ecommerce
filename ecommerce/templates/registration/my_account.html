@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <h1>My Account</h1>
-<strong>Welcome, {{ user.first_name|capfirst }}&nbsp; {{ user.last_name|capfirst }}!</strong>
+<strong>Welcome, {{ user.username|capfirst }}!</strong>
 <br /><br />
 <fieldset class="my_account">
 <legend>Order History</legend>

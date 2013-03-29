@@ -1,12 +1,13 @@
 from django import forms
 from django.template import RequestContext
 from forms import RegistrationForm
+#from registration.forms import RegistrationForm
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 
-
+@login_required
 def my_account(request, template_name="registration/my_account.html"):
     page_title = 'My Account'
     
