@@ -53,6 +53,7 @@ class RegistrationForm(RegistrationFormsMixin, RegistrationFormFromUserModel, fo
     saving of collected user data is delegated to the active
     registration backend.
     """
+  
 
     password1 = forms.CharField(widget=forms.PasswordInput(attrs=attrs_dict, render_value=False),
         label=_("Password"))

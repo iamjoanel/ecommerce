@@ -35,7 +35,7 @@ def register(request):
             return HttpResponseRedirect("/")
     else:
         form = RegistrationForm()
-    return render_to_response("registration/registration.html", {
+    return render_to_response("registration/registration_form.html", {
         'form': form,
     })
 
