@@ -70,3 +70,7 @@ urlpatterns += patterns('catalog.views',
     (r'^category/(?P<category_slug>[-\w]+)/$','show_category', {'template_name':'catalog/category.html'},'catalog_category'),
     (r'^product/(?P<product_slug>[-\w]+)/$','show_product', {'template_name':'catalog/product.html'},'catalog_product'),
 )
+
+urlpatterns += patterns('cart.views',
+    (r'^$', 'show_cart', { 'template_name': 'cart/cart.html' }, 'show_cart'),
+)
