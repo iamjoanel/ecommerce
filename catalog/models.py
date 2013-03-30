@@ -29,8 +29,7 @@ class Product(models.Model):
     name          = models.CharField(max_length=50, unique=True)
     price         = models.DecimalField(max_digits=9, decimal_places=2)
     old_price     = models.DecimalField(max_digits=9, decimal_places=2, blank=True, default=0.00)
-    slug = models.SlugField(max_length=255, unique=True,
-                            help_text='Unique value for product page URL, created from name.')
+    slug = models.SlugField(max_length=255, unique=True, help_text='Unique value for product page URL, created from name.')
     image         = models.ImageField(upload_to='photos/%Y/%m/%d')
     is_active     = models.BooleanField(default=True)
     is_featured   = models.BooleanField(default=True)

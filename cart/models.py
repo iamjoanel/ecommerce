@@ -28,16 +28,3 @@ class CartItem(models.Model):
     def augment_quantity(self, quantity):
         self.quantity = self.quantity + int(quantity)
         self.save()
-
-    def _generate_cart_id():
-        cart_id = ''
-        characters = 'ABCDEFGHIJKLMNOPQRQSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()'
-        cart_id_length = 50
-        for y in range(cart_id_length):
-            cart_id += characters[random.randint(0, len(characters)-1)]
-        return cart_id
-
-    def _cart_id(request):
-        if 'cart_id' in request.session:
-            request.session['cart_id'] = _generate_cart_id()
-        return request.session['cart_id']
