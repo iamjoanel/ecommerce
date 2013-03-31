@@ -12,25 +12,18 @@ ADMINS = (
 
 GRAPPELLI_ADMIN_TITLE = "JMD Seafoods Inc."
 
-ACCOUNT_ACTIVATION_DAYS = 7
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = "apmlanda@gmail.com"
-EMAIL_HOST_PASSWORD = "arveenlanda11"
-EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'apmlanda@gmail.com'
 
 MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'jmdseafoods',                      # Or path to database file if using sqlite3.
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'jmdSeaFoods',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
-        'USER': 'jmdadmin',
-        'PASSWORD': 'jmdadmin',
-        'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT': '',                      # Set to empty string for default.
+        'USER': 'postgres',
+        'PASSWORD': 'arveen11',
+        'HOST': 'localhost',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'PORT': '5432',                      # Set to empty string for default.
     }
 }
 
@@ -78,23 +71,18 @@ STATIC_ROOT = '/home/icommute/webapps/jmd_static/'
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
-STATIC_URL = 'http://icommute.webfactional.com/static/'
+STATIC_ROOT = ''
+
+# URL prefix for static files.
+# Example: "http://example.com/static/", "http://static.example.com/"
+STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
     os.path.join(PROJECT_DIR, 'static'),
-    
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-)
-
-# List of finder classes that know how to find static files in
-# various locations.
-STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
 # Make this unique, and don't share it with anybody.
@@ -140,7 +128,7 @@ INSTALLED_APPS = (
     'accounts',
     'floppyforms',
     'contact',
-    'cart'
+    'cart',
     # Uncomment the next line to enable the admin:
     'grappelli',
     'django.contrib.admin',
