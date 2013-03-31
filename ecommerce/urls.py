@@ -2,6 +2,7 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.conf.urls.defaults import *
 from ecommerce import settings
+from django.conf.urls.static import static
 
 # Uncomment the next two lines to enable the admin:
 
@@ -73,4 +74,4 @@ urlpatterns += patterns('catalog.views',
 
 urlpatterns += patterns('cart.views',
     (r'^$', 'show_cart', { 'template_name': 'cart/cart.html' }, 'show_cart'),
-)
+) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
