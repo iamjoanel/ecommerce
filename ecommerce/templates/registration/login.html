@@ -14,16 +14,25 @@
         {% csrf_token %}
         <center>
         <table>
+            <tr>
+
+                <td><label for="username">User name:</label></td>
+                {% if form.errors %}
+                <td><input type="text" name="username" class="error" value="" id="username"></td>
+                {% else %}
+                <td><input type="text" name="username" value="" id="username"></td>
+                {% endif %}
+                <td></td>
+            </tr>
         <tr>
-            <td>{{ form.username.label_tag }}</td>
-            <td>{{ form.username }}</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>{{ form.password.label_tag }}</td>
-            <td>{{ form.password }}</td>
-            <td></td>
-        </tr>
+                <td><label for="password">Password:</label></td>
+                {% if form.errors %}
+                <td><input type="password" name="password" class="error" value="" id="password"></td>
+                {% else %}
+                <td><input type="password" name="password" value="" id="password"></td>
+                {% endif %}
+                <td></td>
+            </tr>
 
         <tr>
             <td></td>
