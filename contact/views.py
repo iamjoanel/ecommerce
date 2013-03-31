@@ -2,6 +2,7 @@ from django.core.mail import send_mail
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from contact.forms import ContactForm
+from django.template import RequestContext
 
 
 def contact(request):
@@ -20,4 +21,5 @@ def contact(request):
         form = ContactForm(
                 initial={'subject': "I want to request some fish!"}
             )
-    return render_to_response('contact_form.html', {'form': form})
+    return render_to_response('contact_form.html', {'form': form}, 
+        context_instance=RequestContext(request))

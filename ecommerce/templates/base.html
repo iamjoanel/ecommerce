@@ -1,6 +1,12 @@
 <!DOCTYPE html>
     <head>
         {% load staticfiles %}
+            <link rel="stylesheet" href="{% static "reveal/reveal.css" %}">   
+        
+        <!-- Attach necessary scripts -->
+        <script type="text/javascript" src="{% static "reveal/jquery-1.4.4.min.js" %}"></script>
+        <script type="text/javascript" src="{% static "reveal/jquery.reveal.js" %}"></script>
+        
          
          <link rel="stylesheet" href="{% static "css/normalize.css" %}" />
          <link rel="stylesheet" href="{% static "css/foundation.css" %}" />
@@ -51,6 +57,7 @@
 
 
               <ul class="right">
+                <li><a href="#" data-reveal-id="myModal">Cart</a></li>
                 {% if user.is_authenticated %}
                 <li><a href="/accounts/profile">Welcome {{ user.username }}</a></li>
                 <li><a href="/logout">Logout</a></li>
@@ -68,7 +75,12 @@
         </div>
       </div><br><br>
 
-        {% block content %}{% endblock %}
+        {% block content %}
+
+
+        {% endblock %}
+
+
 
       <footer class="row">
         <div class="large-12 columns"><hr />
@@ -90,6 +102,17 @@
           </div>
         </div>
       </footer>
+
+<!-- REVEAL -->
+
+<div id="myModal" class="reveal-modal">
+  <h2>Shopping Cart</h2>
+  <p>This is the content of the shopping cart</p>
+
+  <p><center><a href="/checkout"><button class="button">Checkout</button></center></a></p>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+
 
 
 </div>
