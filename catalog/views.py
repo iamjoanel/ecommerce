@@ -25,7 +25,7 @@ def show_product(request, product_slug, template_name="catalog/product.html"):
     title = p.name
     if request.method == "POST":
         postdata = request.POST.copy()
-        form = ProductAddToCartForm(request, postdata)
+        form = ProductAddToCartForm(request=quest, postdata)
         if form.is_valid():
             cart.add_to_cart(request)
             if request.session.test_cookie_worked():
