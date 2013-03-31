@@ -2,36 +2,35 @@ import os
 # Django settings for ecommerce project.
 
 PROJECT_DIR = os.path.dirname(__file__)
-SITE_NAME = "JMD Seafoods Inc."
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
-    ('Arveen Landa', 'apmlanda@gmail.com'),
 )
 
 GRAPPELLI_ADMIN_TITLE = "JMD Seafoods Inc."
 
 ACCOUNT_ACTIVATION_DAYS = 7
-EMAIL_HOST = 'localhost'
-EMAIL_PORT = 1025
-EMAIL_HOST_USER = ""
-EMAIL_HOST_PASSWORD = ""
-EMAIL_USE_TLS = False
-DEFAULT_FROM_EMAIL = 'testing@example.com'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "apmlanda@gmail.com"
+EMAIL_HOST_PASSWORD = "arveenlanda11"
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'apmlanda@gmail.com'
+
 MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'ecommerce',                      # Or path to database file if using sqlite3.
+        'NAME': 'jmdseafoods',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
-        'USER': 'postgres',
-        'PASSWORD': 'arveen11',
-        'HOST': 'localhost',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT': '5432',                      # Set to empty string for default.
+        'USER': 'jmdadmin',
+        'PASSWORD': 'jmdadmin',
+        'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'PORT': '',                      # Set to empty string for default.
     }
 }
 
@@ -75,15 +74,16 @@ MEDIA_URL = '/assets/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = ''
+STATIC_ROOT = '/home/icommute/webapps/jmd_static/'
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
-STATIC_URL = '/static/'
+STATIC_URL = 'http://icommute.webfactional.com/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
     os.path.join(PROJECT_DIR, 'static'),
+    
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -140,12 +140,12 @@ INSTALLED_APPS = (
     'accounts',
     'floppyforms',
     'contact',
-    'cart',
+    'cart'
     # Uncomment the next line to enable the admin:
     'grappelli',
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
-     'django.contrib.admindocs',
+    # 'django.contrib.admindocs',
 )
 
 # A sample logging configuration. The only tangible logging
