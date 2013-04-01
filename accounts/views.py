@@ -11,7 +11,7 @@ from catalog.models import Product
 
 @login_required
 def my_account(request, template_name="registration/my_account.html"):
-    page_title = 'My Account'
+    title = 'My Account'
 
     name = request.user.username
     return render_to_response(template_name, locals(), context_instance=RequestContext(request))
@@ -28,6 +28,7 @@ def logout(request):
 
 
 def register(request):
+    title = "Registration"
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
@@ -35,9 +36,7 @@ def register(request):
             return HttpResponseRedirect("/")
     else:
         form = RegistrationForm()
-    return render_to_response("registration/registration_form.html", {
-        'form': form,
-    })
+    return render_to_response("registration/registration_form.html", locals())
 
     """
 def register(request):

@@ -57,7 +57,7 @@
 
 
               <ul class="right">
-                <li><a href="#" data-reveal-id="myModal">Cart</a></li>
+                <li><a href="/cart">Cart</a></li>
                 {% if user.is_authenticated %}
                 <li><a href="/accounts/profile">Welcome {{ user.username }}</a></li>
                 <li><a href="/logout">Logout</a></li>
@@ -106,16 +106,17 @@
 <!-- REVEAL -->
 
 <div id="myModal" class="reveal-modal">
-  {% with cart_item_count as cart_count %}
-  <a href="{% url 'show_cart' %}">
-  Shopping Cart
-  <br />
-  {{ cart_count }} Item{{ cart_count|pluralize }}
-  </a>
+  <center>
+    {% with cart_item_count as cart_count %}
+    <a href="{% url 'show_cart' %}">
+    Shopping Cart
+    <br />
+    {{ cart_count }} Item{{ cart_count|pluralize }}
+    </a>
   {% endwith %}
-
-  <p><center><a href="/checkout"><button class="button">Checkout</button></center></a></p>
+  <p><a href="/checkout"><button class="button">Checkout</button></a></p>
   <a class="close-reveal-modal">&#215;</a>
+  </center>
 </div>
 
 

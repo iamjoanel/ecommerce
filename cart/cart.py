@@ -7,18 +7,20 @@ import random
 CART_ID_SESSION_KEY = 'cart_id'
 
 
+# get the current user's cart id, sets new one if blank
 def _cart_id(request):
     if request.session.get(CART_ID_SESSION_KEY, '') == '':
-        request.session[CART_ID_SESSION_KEY] == _generate_cart_id()
+        request.session[CART_ID_SESSION_KEY] = _generate_cart_id()
     return request.session[CART_ID_SESSION_KEY]
 
 
 def _generate_cart_id():
-    cart_id = ""
+    cart_id = ''
     characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()'
     cart_id_length = 50
     for y in range(cart_id_length):
-        cart_id += characters[random.randint(0, len(characters)-1)]
+        cart_id += characters[random.randint(0, len(characters) - 1)]
+
     return cart_id
 
 
@@ -62,8 +64,8 @@ def update_cart(request):
         if int(quantity) > 0:
             cart_item.quantity = int(quantity)
             cart_item.save()
-        else:
-            remove_from_cart(request)
+    else:
+        remove_from_cart(request)
 
 
 def remove_from_cart(request):

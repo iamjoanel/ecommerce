@@ -73,5 +73,5 @@ urlpatterns += patterns('catalog.views',
 )
 
 urlpatterns += patterns('cart.views',
-    (r'^$', 'show_cart', { 'template_name': 'cart/cart.html' }, 'show_cart'),
+    (r'^cart$', 'show_cart', { 'template_name': 'cart/cart.html' }, 'show_cart'),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

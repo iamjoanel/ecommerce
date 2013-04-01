@@ -5,7 +5,7 @@ from django.db import models
 
 class Category(models.Model):
     name        = models.CharField(max_length=50)
-    slug        = models.SlugField(max_length=50, unique=True, help_text= 'Unique value for product page URL, created from name.')
+    slug        = models.SlugField(max_length=50, unique=True, help_text='Unique value for product page URL, created from name.')
     description = models.TextField()
     is_active   = models.BooleanField(default=True)
     created_at  = models.DateTimeField(auto_now_add=True)
@@ -34,6 +34,7 @@ class Product(models.Model):
     is_featured   = models.BooleanField(default=True)
     is_bestseller = models.BooleanField(default=False)
     quantity      = models.IntegerField()
+    description   = models.TextField()
     created_at    = models.DateTimeField(auto_now_add=True)
     update_at     = models.DateTimeField(auto_now=True)
     categories    = models.ManyToManyField(Category)
