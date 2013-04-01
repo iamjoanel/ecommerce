@@ -1,13 +1,13 @@
 <!DOCTYPE html>
     <head>
         {% load staticfiles %}
-            <link rel="stylesheet" href="{% static "reveal/reveal.css" %}">   
-        
+            <link rel="stylesheet" href="{% static "reveal/reveal.css" %}">
+
         <!-- Attach necessary scripts -->
         <script type="text/javascript" src="{% static "reveal/jquery-1.4.4.min.js" %}"></script>
         <script type="text/javascript" src="{% static "reveal/jquery.reveal.js" %}"></script>
-        
-         
+
+
          <link rel="stylesheet" href="{% static "css/normalize.css" %}" />
          <link rel="stylesheet" href="{% static "css/foundation.css" %}" />
          <script src="{%static "js/foundation.min.js" %}"></script>
@@ -106,8 +106,13 @@
 <!-- REVEAL -->
 
 <div id="myModal" class="reveal-modal">
-  <h2>Shopping Cart</h2>
-  <p>This is the content of the shopping cart</p>
+  {% with cart_item_count as cart_count %}
+  <a href="{% url 'show_cart' %}">
+  Shopping Cart
+  <br />
+  {{ cart_count }} Item{{ cart_count|pluralize }}
+  </a>
+  {% endwith %}
 
   <p><center><a href="/checkout"><button class="button">Checkout</button></center></a></p>
   <a class="close-reveal-modal">&#215;</a>

@@ -1,7 +1,5 @@
 *.log
 *.pot
 *.pyc
-local_settings.py
 manage.py
 settings.py
-/assets/*

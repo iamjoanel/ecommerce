@@ -6,32 +6,32 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
+from catalog.models import Product
+
 
 @login_required
 def my_account(request, template_name="registration/my_account.html"):
     page_title = 'My Account'
-    
-    name = request.user.username
-    return render_to_response(template_name, locals(),
-    context_instance=RequestContext(request))
 
+    name = request.user.username
+    return render_to_response(template_name, locals(), context_instance=RequestContext(request))
 
 
 def home(request):
-        return render_to_response('home.html', {'title': 'Home'},
-                           context_instance=RequestContext(request))
+    p = Product.objects.all()
+    return render_to_response('home.html', {'title': 'Home', 'p': p}, context_instance=RequestContext(request))
+
 
 def logout(request):
-    
     auth.logout(request)
-    return HttpResponseRedirect('/')         
+    return HttpResponseRedirect('/')
 
 
 def register(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
-            new_user = form.save()
+            form.save()
             return HttpResponseRedirect("/")
     else:
         form = RegistrationForm()

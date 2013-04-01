@@ -25,15 +25,16 @@ def show_product(request, product_slug, template_name="catalog/product.html"):
     title = p.name
     if request.method == "POST":
         postdata = request.POST.copy()
-        form = ProductAddToCartForm(request=quest, postdata)
+        form = ProductAddToCartForm(request, postdata)
         if form.is_valid():
             cart.add_to_cart(request)
             if request.session.test_cookie_worked():
                 request.session.delete_test_cookie()
-            url = urlresolvers('show_cart')
+            url = urlresolvers.reverse('show_cart')
             return redirect(url)
     else:
         form = ProductAddToCartForm(request=request, label_suffix=":")
+
     form.fields['product_slug'].widget.attrs['value'] = product_slug
     request.session.set_test_cookie()
     return render_to_response("catalog/product.html", locals(), context_instance=RequestContext(request))

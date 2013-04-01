@@ -2,13 +2,12 @@
 
 {% block content %}
 
-    <div id="product_image">
-        <img src="{{ p.image.url }}" alt="{{ p.name }}" />
-    </div>
-    <h1>{{ p.name }}</h1>
-    <form method="post" action="" style="width: 5%;">
-        {{ form.as_p }}
-        <input type="submit" value="Add To Cart">
-    </form>
 
+        <img src="{{ p.image.url }}" alt="{{ p.name }}" />
+
+    <h1>{{ p.name }}</h1>
+        <form method="post" action="" style="width: 5%;">
+            {{ form }}
+            <input type="submit" value="Add To Cart" class="small button">
+        </form>
 {% endblock %}

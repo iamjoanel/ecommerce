@@ -15,7 +15,7 @@ class ProductAdminForm(forms.ModelForm):
 
 class ProductAddToCartForm(forms.Form):
     quantity = forms.IntegerField(min_value=1, max_value=100, widget=forms.NumberInput(attrs={'size': 2, 'value': 1, 'class': 'quantity'}))
-    product_slug = forms.CharField(widget=forms.HiddenInput())
+    product_slug = forms.CharField(widget=forms.TextInput())
 
     def __init__(self, request=None, *args, **kwargs):
         self.request = request
