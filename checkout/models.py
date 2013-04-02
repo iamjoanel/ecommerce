@@ -4,6 +4,11 @@ from django.contrib.auth.models import User
 from catalog.models import Product
 import decimal
 
+@models.permalink
+def get_absolute_url(self):
+    return ('order_details', (), { 'order_id': self.id })
+
+
 class Order(models.Model):
     SUBMITTED = 1
     PROCESSED = 2

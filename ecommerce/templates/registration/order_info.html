@@ -3,21 +3,15 @@
 {% load checkout_tags %}
 
 {% block content %}
-{% if not request.user.is_authenticated %}
-<div class="fr">
-	<a href="{% url login %}?next={{ request.path }}">
-	Have an account?<br />Sign in now!
-	</a>
-</div>
-{% endif %}
-<h1>Checkout</h1>
+<h1>Edit Order Information</h1>
+{{ response }}
 {% if error_message %}
 	<ul class="errorlist">
 		<li>{{ error_message }}</li>
 	</ul>
 {% endif %}
 <form action="." method="post">{% csrf_token %}
-	<fieldset class="checkout">
+	<!-- fieldset class="checkout">
 		<legend>Contact Info</legend>
 		<table>
 		{% form_table_row form.email %}
@@ -47,24 +41,16 @@
 		{% form_table_row form.billing_zip %}
 		{% form_table_row form.billing_country %}
 		</table>
-	</fieldset>
-	<fieldset class="checkout">
-		<legend>Credit Card Info</legend>
-		<table>
-		{% form_table_row form.credit_card_number %}
-		{% form_table_row form.credit_card_type %}
-		{% form_table_row form.credit_card_expire_month %}
-		{% form_table_row form.credit_card_expire_year %}
-		{% form_table_row form.credit_card_cvv %}
-		</table>
-	</fieldset>
+	</fieldset -->
+	<table>
+		{{ form.as_table }}
+	</table>
 	<table>
 	<tr>
 		<th colspan="2">
-			<input type="submit" value="Place Order" class="submit" />
+			<input type="submit" value="Save Information" class="submit" />
 		</th>
 	</tr>
 	</table>
 </form>
-
 {% endblock %}

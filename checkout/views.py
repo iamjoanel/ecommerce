@@ -24,9 +24,9 @@ def show_checkout(request, template_name='checkout/checkout.html'):
             if order_number:
                 request.session['order_number'] = order_number
                 receipt_url = urlresolvers.reverse('checkout_receipt')
-            return HttpResponseRedirect(receipt_url)
+                return HttpResponseRedirect(receipt_url)
         else:
-            error_message = 'Correct the errors below'
+            error_message = u'Correct the errors below'
     else:
         form = CheckoutForm()
     page_title = 'Checkout'
@@ -41,7 +41,7 @@ def receipt(request, template_name='checkout/receipt.html'):
     else:
         cart_url = urlresolvers.reverse('show_cart')
         return HttpResponseRedirect(cart_url)
-        return render_to_response(template_name,locals(), context_instance=RequestContext(request))
+    return render_to_response(template_name,locals(), context_instance=RequestContext(request))
 
 
 
