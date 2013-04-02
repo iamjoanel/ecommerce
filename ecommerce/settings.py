@@ -10,7 +10,18 @@ ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
 
+AUTHNET_POST_URL = 'test.authorize.net'
+AUTHNET_POST_PATH = '/gateway/transact.dll'
+AUTHNET_LOGIN = '2DCK5u3Rn2p'
+AUTHNET_KEY = '84Rr3t4yN6jnj8BP'
+
+
 GRAPPELLI_ADMIN_TITLE = "JMD Seafoods Inc."
+
+GOOGLE_CHECKOUT_MERCHANT_ID = '267814796927199'
+GOOGLE_CHECKOUT_MERCHANT_KEY = 'eX-49BufGg3uRQSwB8zMSg'
+GOOGLE_CHECKOUT_URL = 'https://sandbox.google.com/checkout/api/v2/merchantCheckout/Merchant/' + GOOGLE_CHECKOUT_MERCHANT_ID
+
 
 
 MANAGERS = ADMINS
@@ -18,10 +29,10 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'jmdSeaFoods',                      # Or path to database file if using sqlite3.
+        'NAME': 'ecommerce',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': 'postgres',
-        'PASSWORD': 'alive',
+        'PASSWORD': 'arveen11',
         'HOST': 'localhost',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
         'PORT': '5432',                      # Set to empty string for default.
     }
@@ -129,6 +140,7 @@ INSTALLED_APPS = (
     'floppyforms',
     'contact',
     'cart',
+    'checkout',
     # Uncomment the next line to enable the admin:
     'grappelli',
     'django.contrib.admin',

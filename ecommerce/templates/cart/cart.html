@@ -5,15 +5,15 @@
 {% block content %}
 
     <table summary="Your Shopping Cart" id="shopping_cart">
-        <caption>Your Shopping Cart</caption>
+        <h3>Your Shopping Cart</h3><br>
         <thead>
             <tr>
             <th>Product</th>
             <th>Price</th>
-            <th></th>
-            <th></th>
-            <th></th>
+            <th>Quantity</th>
             <th>Total</th>
+            <th></th>
+            <th></th>
             </tr>
         </thead>
         <tfoot>
@@ -21,15 +21,25 @@
             <th>
                 Cart Subtotal:
             </th>
+
             <th>
                 {{ cart_subtotal|currency }}
             </th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
             </tr>
             {% if cart_items %}
                 <tr>
                     <th class="right" colspan="6">
-                        <a href="#">Checkout Now</a>
+                        <a href="/checkout">Checkout Now</a>
                     </th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
                 </tr>
             {% endif %}
         </tfoot>
@@ -37,27 +47,28 @@
             {% if cart_items %}
                 {% for item in cart_items %}
                 <tr>
-                <td>
+                <td>    
                 <a href="{{ item.get_absolute_url }}" class="cart">{{ item.name }}</a>
                 </td>
                 <td>{{ item.price|currency }}</td>
-                <td class="right">
+                <td class="">
                     <form method="post" action="" class="cart">
-                        <label for="quantity">Quantity:</label>
+                        <label for="quantity"></label>
                             <input type="text" name="quantity" value="{{ item.quantity }}" id="quantity" size="2" class="quantity" maxlength="5" />
                             <input type="hidden" name="item_id" value="{{ item.id }}" />
                 </td>
+                <td class="right">{{ item.total | currency }}</td>
                 <td>
                         <input type="submit" name="submit" value="Update" class="small button"/>
                     </form>
                 </td>
+                <form method="post" action="" class="cart">
                 <td>
-                    <form method="post" action="" class="cart">
+                    
                         <input type="hidden" name="item_id" value="{{ item.id }}" />
                         <input type="submit" name="submit" value="Remove" class="small button"/>
                     </form>
-                </td>
-                <td class="right">{{ item.total | currency }}</td>
+                
                 </tr>
                 {% endfor %}
                 {% else %}
@@ -65,9 +76,12 @@
                     <td colspan="6" style="height:30px;">
                         Your cart is empty.
                     </td>
+
                 </tr>
                 {% endif %}
         </tbody>
     </table>
+
+
 {% endblock %}
 

@@ -6,6 +6,14 @@ import random
 
 CART_ID_SESSION_KEY = 'cart_id'
 
+"""def is_empty(request):
+    return cart_item_count(request) == 0"""
+
+def empty_cart(request):
+    user_cart = get_cart_items(request)
+    user_cart.delete()
+    
+
 
 # get the current user's cart id, sets new one if blank
 def _cart_id(request):
